@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+/* Brand tokens, shared with the mobile app (src/theme.ts there). Components use the Tailwind names
+   (bg-paper, text-ink, text-muted, border-line, bg-field, bg-primary, bg-soft ...); dark mode only swaps
+   the variables below. */
+:root {
+  --ink: #111111;
+  --paper: #ffffff;
+  --card: #ffffff;
+  --muted: #6e6e73;
+  --line: #eeeef0;
+  --field: #f6f6f8;
+  --primary: #ff2d55;
+  --soft: #fff0f3;
+  --danger: #e5484d;
+  --success: #16a34a;
+  --warning: #b45309;
+  --star: #ffb800;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f5f5f7;
+    --paper: #0e0e10;
+    --card: #18181b;
+    --muted: #9a9aa3;
+    --line: #2a2a30;
+    --field: #1e1e22;
+    --primary: #ff4d6d;
+    --soft: #3a1822;
+    --danger: #ff6369;
+    --success: #4ade80;
+    --warning: #fbbf24;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-field: var(--field);
+  --color-primary: var(--primary);
+  --color-soft: var(--soft);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-star: var(--star);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Native date inputs follow the theme. */
+input[type='date'] {
+  color-scheme: inherit;
+}
